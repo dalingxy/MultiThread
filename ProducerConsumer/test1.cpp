@@ -10,7 +10,7 @@ using namespace std;
 
 void test1(int np, int nc) {
     vector<thread> producer(np), consumer(nc); //生产者消费者线程
-    static SharedBuffer bufferSpace(20);        //共享缓冲区
+    static SharedBuffer bufferSpace(20);       //共享缓冲区
     //线程初始化
     for(int i=0; i<np; ++i) 
         producer[i] = thread(bind(&Producer::Produce, Producer(i, bufferSpace)));
